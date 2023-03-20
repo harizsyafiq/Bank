@@ -32,10 +32,22 @@ const harizChecking = new Bank(100)
 const amountInput = document.getElementById('amount')
 const depositButton = document.getElementById('deposit')
 const withdrawButton = document.getElementById('withdraw')
+const balanceDiv = document.getElementById('balance')
 
-depositButton.onclick = () => harizChecking.deposit(Number(amountInput.value))
+depositButton.onclick = () => {
+  let amount = Number(amountInput.value)
+  harizChecking.deposit(amount)
+  balanceDiv.innerText = `Balance: ${harizChecking.balance}`
+}
 
-console.log(harizChecking.balance)
+withdrawButton.onclick = () => {
+  let amount = Number(amountInput.value)
+  harizChecking.withdraw(amount)
+  balanceDiv.innerText = `Balance: ${harizChecking.balance}`
+}
+
+
+// console.log(harizChecking.balance)
 // harizChecking.deposit(100)
 // harizChecking.deposit(5000)
 // harizChecking.withdraw(500)
